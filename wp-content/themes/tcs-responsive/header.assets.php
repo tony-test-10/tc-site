@@ -10,6 +10,7 @@
 <!-- Main CSS -->
 <!--<link href="//fonts.googleapis.com/css?family=Lato:400,300,700,i,300i" rel="stylesheet" type="text/css" /> -->
 <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:700,400' rel='stylesheet' type='text/css'>
+<!-- replaced with combined css
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/blog.css<?php if ($ver) { echo "?v=$v"; } ?>" />
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/blog-responsive.css<?php if ($ver) { echo "?v=$v"; } ?>" />
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/base.css<?php if ($ver) { echo "?v=$v"; } ?>" />
@@ -23,7 +24,16 @@
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/register-login.css<?php if ($ver) { echo "?v=$v"; } ?>" />
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/blog-base.css<?php if ($ver) { echo "?v=$v"; } ?>" />
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_directory' ); ?>/css/community-landing.css<?php if ($ver) { echo "?v=$v"; } ?>" />
+-->
 
+<?php 
+	// check if the browser supports gzip so we can specify the gzip version of resources
+	$ext = '';
+	if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false) {
+		$ext = '.gz';
+	}
+?>
+<link rel="stylesheet" href="//d1ovw0hi0f966v.cloudfront.net/css/header.assets-combined.min.css<?php echo $ext ?>"/>
 
 
 <!-- External JS -->
@@ -50,6 +60,8 @@
 </script>
 
 <?php fixIERoundedCorder(); ?>
+<script src="//d1ovw0hi0f966v.cloudfront.net/js/v1/combined.min.js<?php echo $ext ?>" type="text/javascript"></script>
+<!-- replaced with combined js
 <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.bxslider.js<?php if ($ver) { echo "?v=$v"; } ?>" type="text/javascript"></script>
 
 <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.easing.1.3.js<?php if ($ver) { echo "?v=$v"; } ?>" type="text/javascript"></script>
@@ -73,3 +85,4 @@
 <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.jscrollpane.min.js<?php if ($ver) { echo "?v=$v"; } ?>" type="text/javascript"></script>
 <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.mousewheel.js<?php if ($ver) { echo "?v=$v"; } ?>" type="text/javascript"></script>
 <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.column-1.0.js<?php if ($ver) { echo "?v=$v"; } ?>" type="text/javascript"></script>
+-->

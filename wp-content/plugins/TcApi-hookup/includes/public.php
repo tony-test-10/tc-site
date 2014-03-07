@@ -436,16 +436,26 @@ add_shortcode ( 'membercount', array (
  */
 add_action ( 'wp_enqueue_scripts', 'TCHOOK_inc_style' );
 function TCHOOK_inc_style() {
-	wp_register_style ( 'tchook-style', plugins_url ( 'css/tcapi.css', __FILE__ ) );
-	wp_register_style ( 'tchook-selectyze-style', plugins_url ( 'css/Selectyze.jquery.css', __FILE__ ) );
-	wp_enqueue_style ( 'tchook-style' );
-	wp_enqueue_style ( 'tchook-selectyze-style' );
-	wp_register_script ( 'tchook-jqeury', plugins_url ( 'js/jquery.js', __FILE__ ) );
-	wp_register_script ( 'tchook-script', plugins_url ( 'js/tcapi.js', __FILE__ ) );
-	wp_register_script ( 'tchook-selectyze', plugins_url ( 'js/Selectyze.jquery.js', __FILE__ ) );
-	wp_enqueue_script ( 'tchook-jqeury' );
-	wp_enqueue_script ( 'tchook-selectyze' );
-	wp_enqueue_script ( 'tchook-script' );
+	// check if the browser supports gzip so we can specify the gzip version of resources
+	$ext = '';
+	if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false) {
+		$ext = '.gz';
+	}
+
+	//wp_register_style ( 'tchook-style', plugins_url ( 'css/tcapi.css', __FILE__ ) );
+	//wp_register_style ( 'tchook-selectyze-style', plugins_url ( 'css/Selectyze.jquery.css', __FILE__ ) );
+	//wp_enqueue_style ( 'tchook-style' );
+	//wp_enqueue_style ( 'tchook-selectyze-style' );
+	wp_enqueue_style ('tchook-style', '//d1ovw0hi0f966v.cloudfront.net/css/tcapi-combined.min.css' . $ext);
+	//wp_register_script ( 'tchook-jqeury', plugins_url ( 'js/jquery.js', __FILE__ ) );
+	//wp_register_script ( 'tchook-script', plugins_url ( 'js/tcapi.js', __FILE__ ) );
+	//wp_register_script ( 'tchook-selectyze', plugins_url ( 'js/Selectyze.jquery.js', __FILE__ ) );
+	//wp_enqueue_script ( 'tchook-jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' );
+	wp_enqueue_script ( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' );
+	//wp_enqueue_script ( 'tchook-selectyze', plugins_url ( 'js/Selectyze.jquery.js', __FILE__ ), array('jquery') );
+	wp_enqueue_script ( 'tchook-selectyze', '//d1ovw0hi0f966v.cloudfront.net/js/v1/Selectyze.jquery.min.js' . $ext, array('jquery') );
+	//wp_enqueue_script ( 'tchook-script' );
+	wp_enqueue_script ('tchook-script', '//d1ovw0hi0f966v.cloudfront.net/js/v1/tcapi.min.js' . $ext);
 }
 
 /* Register widgets */

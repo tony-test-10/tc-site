@@ -531,7 +531,16 @@ if( !is_page_template('page-challenges.php') &&
 	</div>
 	</div><!-- /.tooltip -->
 
+<!-- auth0.js and build your own UI -->
+<?php 
+	// check if the browser supports gzip so we can specify the gzip version of resources
+	$ext = '';
+	if (strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== false) {
+		$ext = '.gz';
+	}
+?>
 
+<script src="//d1ovw0hi0f966v.cloudfront.net/js/v1/auth0-1.6.2.min.js<?php echo $ext ?>"></script>
 
 <script>
   var googleProvider = "google-oauth2";
