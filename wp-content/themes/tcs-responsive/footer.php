@@ -539,7 +539,7 @@ if( !is_page_template('page-challenges.php') &&
 		$ext = '.gz';
 	}
 ?>
-
+<!-- NOTE: hosting this on our cdn b/c the auth0 cdn performance is poor -->
 <script src="//d1ovw0hi0f966v.cloudfront.net/js/v1/auth0-1.6.2.min.js<?php echo $ext ?>"></script>
 
 <script>
