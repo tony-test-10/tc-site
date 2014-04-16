@@ -246,21 +246,6 @@ get_header('challenge-landing');
 
 <section class="tabsWrap">
 <nav class="tabNav">
-  <div class="topRightTitle topRightTitleAlt">
-    <?php
-    if ($contestType != 'design'):
-      ?>
-      <a href="http://apps.topcoder.com/forums/?module=Category&categoryID=<?php echo $contest->forumId; ?>"
-         class="contestForumIcon" target="_blank">Challenge Discussion</a>
-    <?php
-    else:
-      ?>
-      <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=<?php echo $contest->forumId; ?>"
-         class="contestForumIcon" target="_blank">Challenge Discussion</a>
-    <?php
-    endif;
-    ?>
-  </div>
   <ul>
     <?php
     if ($contestType != 'design'):
