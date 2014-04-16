@@ -41,10 +41,6 @@ $noCache = get_query_var('nocache');
 $contest = get_contest_detail('', $contestID, $contestType, $noCache);
 $registrants = empty($contest->registrants) ? array() : $contest->registrants;
 
-echo "<pre>";
-print_r($contest);
-echo "</pre>";
-
 $curDate = new DateTime();
 $registerDisable = true;
 if ($contest->registrationEndDate) {
